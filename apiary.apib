@@ -5,6 +5,13 @@ FORMAT: X-1A
 # Machine [/machines/{id}]
 
 ## Create a Machine [POST]
++ Request (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "willy",
+        }
+
 + Response 201 (application/json)
 
         {
@@ -13,7 +20,25 @@ FORMAT: X-1A
           "id": "1"
         }
 
-## Retrieve a Machine [PUT]
+
+
+## Update a Machine [PUT]
+
++ Request (application/json)
+
+        {
+          "name": "waldo"
+        }
+
++ Response 200 (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "waldo",
+          "id": "1"
+        }
+
+## Retrieve a Machine [GET]
 + Response 200 (text/plain)
 
         {
@@ -22,15 +47,26 @@ FORMAT: X-1A
           "id": "1"
         }
 
-## Update a Machine [GET]
-+ Response 200 (text/plain)
-
-        Hello World!
-
 ## Delete Message [DELETE]
 + Response 204
 
 # Machine Types [/machine_types/{id}]
+
+## Create a Machine type [POST]
+
++ Request (application/json)
+        
+        {
+            "name": "bolldozer"
+        }
+
++ Response 201 (application/json)
+  
+        {
+            "name": "bolldozer",
+            "id": "1"
+        }
+
 
 ## Retreive Machine type [GET]
 + Response 200 (application/json)

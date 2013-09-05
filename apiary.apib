@@ -2,7 +2,9 @@ FORMAT: X-1A
 
 # Machines API 
 
-# Machine [/machines/{id}]
+# Machine [/machines/{name}]
++ Parameters
+  + id (required) ... Example: `1`
 
 ## Create a Machine [POST]
 + Response 201 (application/json)
@@ -25,17 +27,23 @@ FORMAT: X-1A
 ## Update a Machine [GET]
 + Response 200 (text/plain)
 
-        Hello World!
+        {
+          "type": "bulldozer",
+          "name": "waldo",
+          "id": "1"
+        }
 
 ## Delete Message [DELETE]
 + Response 204
 
-# Machine Types [/machine_types/{id}]
+# Machine Types [/machine_types/{name}]
++ Parameters
+  + id (required) ... Example: `1`
 
 ## Retreive Machine type [GET]
 + Response 200 (application/json)
 
         {
-          "type": "bulldozer"
+          "name": "bulldozer"
         }
 

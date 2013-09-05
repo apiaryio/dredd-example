@@ -1,0 +1,4 @@
+before_install:
+  - npm install -g dredd
+services:
+  - mongodb

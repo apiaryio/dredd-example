@@ -1,0 +1,23 @@
+{
+  "name": "machine-api-example",
+  "version": "0.0.0",
+  "description": "Example Express application for Dredd API testing tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "./scripts/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apiaryio/machine-api-example.git"
+  },
+  "author": "Adam Kliment",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apiaryio/machine-api-example/issues"
+  },
+  "dependencies": {
+    "express": "~3.3.8",
+    "mongous": "~0.2.4",
+    "coffee-script": "~1.6.3"
+  }
+}

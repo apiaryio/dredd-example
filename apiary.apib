@@ -1,0 +1,41 @@
+FORMAT: X-1A
+
+# Machines API 
+
+# Machine [/machines/{id}]
+
+## Create a Machine [POST]
++ Response 201 (application/json)
+
+        {
+          "type": "bulldozer",
+          "name": "willy",
+          "id": "1"
+        }
+
+## Retrieve a Machine [PUT]
++ Response 200 (text/plain)
+
+        {
+          "type": "bulldozer",
+          "name": "waldo",
+          "id": "1"
+        }
+
+## Update a Machine [GET]
++ Response 200 (text/plain)
+
+        Hello World!
+
+## Delete Message [DELETE]
++ Response 204
+
+# Machine Types [/machine_types/{id}]
+
+## Retreive Machine type [GET]
++ Response 200 (application/json)
+
+        {
+          "type": "bulldozer"
+        }
+

@@ -4,7 +4,7 @@ FORMAT: X-1A
 
 # Machine [/machines/{name}]
 + Parameters
-  + id (required) ... Example: `1`
+  + name (required) ... Example: `willy`
 
 ## Create a Machine [POST]
 + Request (application/json)
@@ -14,7 +14,7 @@ FORMAT: X-1A
           "name": "willy",
         }
 
-+ Response 201 (application/json)
++ Response 202 (application/json)
 
         {
           "type": "bulldozer",
@@ -50,32 +50,3 @@ FORMAT: X-1A
 
 ## Delete Message [DELETE]
 + Response 204
-
-# Machine Types [/machine_types/{name}]
-+ Parameters
-  + id (required) ... Example: `1`
-
-## Create a Machine type [POST]
-
-+ Request (application/json)
-        
-        {
-            "name": "bolldozer"
-        }
-
-+ Response 201 (application/json)
-  
-        {
-            "name": "bolldozer",
-            "id": "5229c6e8e4b0bd7dbb07e29c"
-        }
-
-
-## Retreive Machine type [GET]
-+ Response 200 (application/json)
-
-        {
-          "name": "bulldozer",
-          "id": "5229c6e8e4b0bd7dbb07e29c"          
-        }
-

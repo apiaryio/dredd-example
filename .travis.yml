@@ -13,3 +13,5 @@ notifications:
       - adam@apiary.io
     on_success: change
     on_failure: always
+before_script:
+  - mongo mydb_test --eval 'db.addUser("test", "test");'

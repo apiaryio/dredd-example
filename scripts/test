@@ -1,5 +1,6 @@
 #!/bin/sh
 ./node_modules/coffee-script/bin/coffee app.coffee &
+sleep 5
 PID=$!
 dredd apiary.apib http://localhost:3000/
 RESULT=$?

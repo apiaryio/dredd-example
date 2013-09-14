@@ -14,31 +14,39 @@ machineTypes = db('test.machine_types')
 app = express()
 app.use(express.bodyParser())
 
+
+app.use(express.logger())
+
+app.use (req, res, next) ->
+  res.contentType('application/json')
+  next()
+
 app.post '/machines', (req, res) ->
+  console.log "BODY: " + JSON.stringify(req.body)
   if db('test.machines').insert req.body
-    res.send 202
+    res.send 202 , {'message': 'Accepted'}
   else
     res.send 500
 
-app.put '/machines', (req, res) ->
-  if db('test.machines').save req.body
-    res.send 202
-  else
-    res.send 500
+app.get '/machines', (req, res)  ->
+  db('test.machines').find (reply) ->
+    documents = reply['documents']
+    res.send 200, documents
 
 app.get '/machines/:name', (req, res) ->
-  db('test.machines').find {name: req.query.name}, 1, (reply) ->
+  console.log "NANE: " + req.params.name
+  db('test.machines').find {name: req.params.name}, (reply) ->
     documents = reply['documents']
-    if not documents.length == 0
-      doc = reply['documents'][0]
-      res.send 200, JSON.stringify doc
+    if documents.length != 0
+      res.send 200, documents[0]
     else
-      res.send 404
+      res.send 400
 
 app.delete '/machines/:name', (req, res) ->
-  if db('test.machines').remove {name: req.query.name}
+  if db('test.machines').remove {name: req.params.name}
     res.send 204
   else
     res.send 404
 
 app.listen 3000
+console.log('Listening on port 3000');

@@ -1,10 +1,9 @@
 express = require 'express'
 db = require("mongous").Mongous
 
-#cleanup and setup database
+#TODO cleanup and setup database, this will be part of the before script in the test command
 db('test.$cmd').find({'drop': 'machines'},1)
 db('test.$cmd').find({'drop': 'machine_types'},1)
-
 db('test.$cmd').find({"create": "machines"},1)
 db('test.$cmd').find({"create": "machine_types"},1)
 

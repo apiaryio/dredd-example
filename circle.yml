@@ -1,0 +1,8 @@
+dependencies:
+  pre:
+    - "npm install -g dredd"
+    - "mongo mydb_test --eval 'db.addUser("test", "test");'"
+
+test:
+  override:
+    - "./scripts/test"

@@ -4,6 +4,11 @@ Dredd Example Application
 
 [![Codeship Build Status](https://www.codeship.io/projects/6ef5ed00-1244-0131-4f7e-3af137c820ec/status)](https://www.codeship.io/projects/7858)
 
+[![Circle-CI Build Status](https://circleci.com/gh/apiaryio/dredd-example.png?circle-token=29f2fab741d29cf6e66ceb55a99c38e8295ed9bf)](https://circleci.com/gh/apiaryio/dredd-example)
+
+
+
+
 Example API backend application in CoffeeScript and Express.js for demostration how to test [its API documentation ][Apiary] written in 
 [API Blueprint][] format with [Dredd][] testing tool and [Gavel][] library in Continous Integration like [Travis-CI][]
 

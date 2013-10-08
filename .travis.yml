@@ -7,11 +7,5 @@ before_install:
 script: ./scripts/test
 services:
   - mongodb
-notifications:
-  email:
-    recipients:
-      - adam@apiary.io
-    on_success: change
-    on_failure: always
 before_script:
   - mongo mydb_test --eval 'db.addUser("test", "test");'

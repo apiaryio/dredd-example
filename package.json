@@ -16,6 +16,7 @@
     "url": "https://github.com/apiaryio/machine-api-example/issues"
   },
   "dependencies": {
+    "dredd": "~0.1.2",
     "express": "~3.3.8",
     "mongous": "~0.2.4",
     "coffee-script": "~1.6.3"

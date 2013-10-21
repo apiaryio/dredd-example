@@ -2,7 +2,7 @@
 ./node_modules/coffee-script/bin/coffee app.coffee &
 sleep 5
 PID=$!
-dredd apiary.apib http://localhost:3000/
+./node_modules/dredd/bin/dredd apiary.apib http://localhost:3000/
 RESULT=$?
 kill -9 $PID
 exit $RESULT

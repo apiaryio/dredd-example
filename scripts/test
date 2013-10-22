@@ -1,8 +1,10 @@
 #!/bin/sh
+npm install -g dredd@0.1.2
+./node_modules/coffee-script/bin/coffee scripts/reset_db.coffee
 ./node_modules/coffee-script/bin/coffee app.coffee &
-sleep 5
+sleep 3
 PID=$!
-./node_modules/dredd/bin/dredd apiary.apib http://localhost:3000/
+dredd apiary.apib http://localhost:3000/
 RESULT=$?
 kill -9 $PID
 exit $RESULT

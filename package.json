@@ -18,6 +18,6 @@
   "dependencies": {
     "express": "~3.3.8",
     "mongous": "~0.2.4",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.7.1"
   }
 }

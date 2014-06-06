@@ -1,10 +1,18 @@
 #!/bin/sh
-npm install -g dredd@0.3.0
+#npm install -g dredd@0.3.0
+npm install -g git://github.com/apiaryio/dredd.git#netmilk/new-rest-reporter
+s
+export DREDD_REST_URL=http://reportingmock.apiary-mock.com
+export DREDD_REST_TOKEN=aff888af9993db9ef70edf3c878ab521
+export DREDD_REST_SUITE=jakubtest
+# export DREDD_REST_DEBUG=true
+
 ./node_modules/coffee-script/bin/coffee scripts/reset_db.coffee
 ./node_modules/coffee-script/bin/coffee app.coffee &
 sleep 3
 PID=$!
-dredd apiary.apib http://localhost:3000/
+#../dredd/bin/dredd apiary.apib http://localhost:3000/ --reporter apiary
+dredd apiary.apib http://localhost:3000/ --reporter apiary
 RESULT=$?
 kill -9 $PID
 exit $RESULT

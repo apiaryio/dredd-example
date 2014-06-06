@@ -31,7 +31,7 @@ app.get '/machines/:name', (req, res) ->
   db('test.machines').find {name: req.params.name}, (reply) ->
     documents = reply['documents']
     if documents.length != 0
-      res.send 200, documents[0]
+      res.send 200, {'foo': 'bar'}
     else
       res.send 400
 

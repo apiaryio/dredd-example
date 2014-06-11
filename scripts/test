@@ -1,5 +1,5 @@
 #!/bin/sh
-#npm install -g dredd@0.3.0
+npm install -g dredd@0.3.2
 npm install -g git://github.com/apiaryio/dredd.git#netmilk/new-rest-reporter
 
 export DREDD_REST_URL=http://api.apiary.io

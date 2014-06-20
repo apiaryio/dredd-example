@@ -5,6 +5,7 @@ npm install -g dredd@0.3.0
 sleep 3
 PID=$!
 dredd apiary.apib http://localhost:3000/
+dredd apiary.apib http://localhost:3000/v2
 RESULT=$?
 kill -9 $PID
 exit $RESULT

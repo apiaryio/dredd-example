@@ -53,7 +53,7 @@ The states *id* and *created_at* are assigned by the Gist Fox API at the moment 
 
 
 + Parameters
-    + id (string) ... ID of the Gist in the form of a hash.
+    + id (required, string, `42`) ... ID of the Gist in the form of a hash.
 
 + Model (application/hal+json)
 
@@ -68,7 +68,7 @@ The states *id* and *created_at* are assigned by the Gist Fox API at the moment 
             {
                 "_links": {
                     "self": { "href": "/gists/42" },
-                    "star": { "href": "/gists/42/star" },
+                    "star": { "href": "/gists/42/star" }
                 },
                 "id": "42",
                 "created_at": "2014-04-14T02:15:15Z",
@@ -106,6 +106,8 @@ The Gist Collection resource has the following attribute:
 
 In addition it **embeds** *Gist Resources* in the Gist Fox API.
 
++ Parameters
+    + since (optional, integer, `0`) ... Unix timestamp 
 
 + Model (application/hal+json)
 
@@ -138,7 +140,7 @@ In addition it **embeds** *Gist Resources* in the Gist Fox API.
 
 ### List All Gists [GET]
 + Parameters
-    + since (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Only gists updated at or after this time are returned.
+    + since (optional, integer, `0`) ... Timestamp in unix time format Only gists updated at or after this time are returned.
 
 + Response 200
 
@@ -168,7 +170,7 @@ The Star resource has the following attribute:
 
 + Parameters
 
-    + id (string) ... ID of the gist in the form of a hash
+    + id (required, string, `42`) ... ID of the gist in the form of a hash
 
 + Model (application/hal+json)
 
@@ -182,7 +184,7 @@ The Star resource has the following attribute:
 
             {
                 "_links": {
-                    "self": { "href": "/gists/42/star" },
+                    "self": { "href": "/gists/42/star" }
                 },
                 "starred": true
             }

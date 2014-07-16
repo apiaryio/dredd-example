@@ -1,6 +1,7 @@
 #!/bin/sh
 if [ "$CI" = "true" ]
   then
+    npm update -g npm
     npm install -g dredd@0.3.8
 fi
 ./node_modules/coffee-script/bin/coffee scripts/reset_db.coffee

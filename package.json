@@ -16,8 +16,9 @@
     "url": "https://github.com/apiaryio/machine-api-example/issues"
   },
   "dependencies": {
+    "coffee-script": "~1.7.1",
     "express": "~3.3.8",
-    "mongous": "~0.2.4",
-    "coffee-script": "~1.7.1"
+    "mongoose": "^3.8.17",
+    "mongous": "^0.2.6"
   }
 }

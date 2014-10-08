@@ -17,10 +17,12 @@ The Example API for Dredd API Blueprint testing tool
           "name": "willy"
         }
 
-+ Response 202 (application/json)
++ Response 201 (application/json)
         
         {
-          "message": "Accepted"
+          "_id": "5435542b1de4b12f6ab66b41",
+          "type": "bulldozer",
+          "name": "willy"
         }
 
 ## Retreive all Machines [GET]
@@ -33,9 +35,9 @@ The Example API for Dredd API Blueprint testing tool
             "name": "willy"
         }]
 
-# Machine [/machines/{name}]
+# Machine [/machines/{id}]
 + Parameters
-  + name (required,`willy`)
+  + id (required,`52341870ed55224b15ff07ef`)
 
 
 ## Retrieve a Machine [GET]
@@ -44,9 +46,9 @@ The Example API for Dredd API Blueprint testing tool
         {
           "type": "bulldozer",
           "name": "willy",
-          "_id": "5229c6e8e4b0bd7dbb07e29c"
+          "_id": "52341870ed55224b15ff07ef"
         }
 
-## Delete Message [DELETE]
+## Delete a Machine [DELETE]
 
 + Response 204

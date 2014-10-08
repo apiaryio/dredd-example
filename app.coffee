@@ -1,12 +1,13 @@
 express = require 'express'
-db = require("mongous").Mongous
 
-machines = db('test.machines')
-machineTypes = db('test.machine_types')
+mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/test')
+
+machineSchema = mongoose.Schema {}, {strict: false}
+Machines = mongoose.model 'Machines', machineSchema
 
 app = express()
 app.use(express.bodyParser())
-
 
 app.use(express.logger())
 
@@ -15,31 +16,41 @@ app.use (req, res, next) ->
   next()
 
 app.post '/machines', (req, res) ->
-  console.log "BODY: " + JSON.stringify(req.body)
-  if db('test.machines').insert req.body
-    res.send 202 , {'message': 'Accepted'}
-  else
-    res.send 500
-
+  machine = new Machines req.body
+  machine.save (err, machine) ->
+    if err
+      return res.send 500
+    
+    res.send 201 , machine
+  
 app.get '/machines', (req, res)  ->
-  db('test.machines').find (reply) ->
-    documents = reply['documents']
-    res.send 200, documents
+  Machines.find {}, (err, machines) ->      
+    if err
+      return res.send 500
+    res.send 200, machines
 
-app.get '/machines/:name', (req, res) ->
-  console.log "NANE: " + req.params.name
-  db('test.machines').find {name: req.params.name}, (reply) ->
-    documents = reply['documents']
-    if documents.length != 0
-      res.send 200, documents[0]
-    else
-      res.send 400
+app.get '/machines/:id', (req, res) ->
+  Machines.findOne {_id: req.params.id}, (err, machine) ->
+    if err
+      return res.send 500
+    
+    unless machine?
+      return res.send 404
+    
+    res.send 200, machine
 
-app.delete '/machines/:name', (req, res) ->
-  if db('test.machines').remove {name: req.params.name}
-    res.send 204
-  else
-    res.send 404
+app.delete '/machines/:id', (req, res) ->
+  Machines.findOne {_id: req.params.id}, (err, machine) ->
+    if err
+      return res.send 500
+
+    unless machine?
+      return res.send 404
+
+    Machines.remove {_id: req.params.id}, (err) ->
+      if err
+        return res.send 500
+      res.send 204
 
 app.listen 3000
 console.log('Listening on port 3000');

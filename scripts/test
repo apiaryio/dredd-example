@@ -2,10 +2,9 @@
 if [ "$CI" = "true" ]
   then
     npm update -g npm
-    npm install -g dredd@0.3.8
+    npm install -g dredd@0.3.14
 fi
-./node_modules/coffee-script/bin/coffee scripts/reset_db.coffee
-./node_modules/coffee-script/bin/coffee app.coffee &
+node app.js &
 sleep 3
 PID=$!
 dredd apiary.apib http://localhost:3000/ --hookfiles=hooks/*

@@ -7,7 +7,7 @@ fi
 node app.js &
 sleep 3
 PID=$!
-dredd apiary.apib http://localhost:3000/
+./node_modules/.bin/dredd apiary.apib http://localhost:3000/ --hookfiles=hooks/*
 RESULT=$?
 kill -9 $PID
 exit $RESULT

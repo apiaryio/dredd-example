@@ -6,7 +6,7 @@ Dredd Example Application
 [![Semaphore Build Status](https://semaphoreapp.com/api/v1/projects/d18d3bd1819aa323f532f45cf5cd2550e272aade/90157/badge.png)](https://semaphoreapp.com/projects/3035)
 [![Build Status](https://drone.io/github.com/apiaryio/dredd-example/status.png)](https://drone.io/github.com/apiaryio/dredd-example/latest)
 
-Example API backend application in CoffeeScript and Express.js for demostration how to validate [GistFox API documentation][Apiary] written in 
+This is simple example API backend application in CoffeeScript and Express.js for demostration how to validate [GistFox API documentation][Apiary] written in 
 [API Blueprint][] format with [Dredd][] testing tool and [Gavel][] library in Continous Integration like [Travis-CI][]
 
 Have a look at our [blogpost how to test RESTful APIs][blogpost] with [Dredd][], [Gavel][] and [API Blueprint][]

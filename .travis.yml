@@ -1,6 +1,8 @@
 language: node_js
 node_js:
-  - 0.8
-script: ./scripts/test
-services:
-  - mongodb
+  - '0.12'
+before_script:
+  - npm update -g npm
+  - npm install -g dredd@stable
+script:
+  - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/apiary.apib https://polls.apiblueprint.org/ --hookfiles=hooks/*

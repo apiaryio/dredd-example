@@ -1,3 +1,10 @@
+machine:
+  node:
+    version: 0.12.14
+
 test:
+  pre:
+    - npm update -g npm
+    - npm install -g dredd@stable
   override:
-    - ./scripts/test
+    - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/apiary.apib https://polls.apiblueprint.org/ --hookfiles=hooks/*

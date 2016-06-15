@@ -1,11 +1,7 @@
-machine:
-  node:
-    version: 0.12.14
-
-test:
-  pre:
+build:
+  image: node:0.12
+  commands:
     - npm update -g npm
     - npm install -g dredd@unstable
-  override:
     - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/apiary.apib https://polls.apiblueprint.org --hookfiles=hooks/*
     - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/swagger.yml https://polls.apiblueprint.org --hookfiles=hooks/*

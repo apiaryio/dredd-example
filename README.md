@@ -1,4 +1,4 @@
-Dredd Example Application
+Dredd Example CI setup
 ===================
 
 This is simple example CI setup for demostration how to validate [polls-api][] (living at [polls-api-url][]) written in both 

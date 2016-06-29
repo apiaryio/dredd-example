@@ -1,6 +1,6 @@
-# Dredd Example CI Setup
+# Dredd Example
 
-This is example CI setup to demostrate how easily you can validate your HTTP API implementation in [CI][] with the [Dredd][] testing framework.
+This is an example application to demonstrate how easily you can validate your HTTP API implementation in [CI][] with the [Dredd][] testing framework.
 
 ## How It Works
 
@@ -19,7 +19,6 @@ To learn how to use Dredd with your CI, read:
 | ---------- | ------ |
 | Travis CI  | [![Travis CI Build Status](https://travis-ci.org/apiaryio/dredd-example.svg?branch=master)](https://travis-ci.org/apiaryio/dredd-example) |
 | CircleCI   | [![CircleCI Build Status](https://circleci.com/gh/apiaryio/dredd-example.svg?style=svg)](https://circleci.com/gh/apiaryio/dredd-example) |
-| Drone.io   | [![Drone.io Build Status](https://drone.io/github.com/apiaryio/dredd-example/status.png)](https://drone.io/github.com/apiaryio/dredd-example/latest) |
 
 
 [CI]: https://en.wikipedia.org/wiki/Continuous_integration

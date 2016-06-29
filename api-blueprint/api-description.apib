@@ -1,0 +1,157 @@
+FORMAT: 1A
+
+# Gist Fox API
+Gist Fox API is a sample **pastes service** similar to [GitHub's Gist](http://gist.github.com).
+
+## Media Types
+Where applicable this API uses the [HAL+JSON](http://stateless.co/hal_specification.html) media type to represent resources, states and affordances.
+
+Request bodies are using plain JSON to create new resources. Bodies of the PATCH requests are processed according to [RFC7396](https://tools.ietf.org/html/rfc7396).
+
+## Error States
+The common [HTTP Response Status Codes](https://github.com/for-GET/know-your-http-well/blob/master/status-codes.md) are used.
+
+## Gist Fox API Root [/]
+
+Gist Fox API entry point. Provides initial API affordances in the form of the HTTP Link header and HAL links.
+
+### Retrieve the Entry Point [GET]
+
++ Response 200 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/>;rel="self",<http://api.example.com/gists>;rel="gists"
+
+    + Attributes (Links)
+
+## Gist [/gists/{id}]
+
+A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+
++ Parameters
+    + id: 42 (required, string) - ID of the Gist
+
+### Retrieve a Single Gist [GET]
+
++ Response 200 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/gists/42>;rel="self", <http://api.example.com/gists/42/star>;rel="star"
+
+    + Attributes (Gist)
+
+### Edit a Gist [PATCH]
+
++ Request (application/json)
+
+    + Attributes
+        + content: `Updated content...`
+
++ Response 200 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/gists/42>;rel="self", <http://api.example.com/gists/42/star>;rel="star"
+
+    + Attributes (Gist)
+
+### Delete a Gist [DELETE]
+
++ Response 204
+
+## Gists Collection [/gists{?since}]
+
+Collection of Gists.
+
++ Parameters
+    + since: 0 (optional, number) - Timestamp in unix time format. Only Gists updated at or after this time are returned.
+
+### List All Gists [GET]
+
++ Response 200 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/gists>;rel="self"
+
+    + Attributes (Gists Collection)
+
+### Create a Gist [POST]
+
++ Request (application/json)
+
+    + Attributes
+        + description: `Gist description...`
+        + content: `String content...`
+
++ Response 201 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/gists/42>;rel="self", <http://api.example.com/gists/42/star>;rel="star"
+
+    + Attributes (Gist)
+
+## Star [/gists/{id}/star]
+
+Gist's starred status.
+
++ Parameters
+    + id: 42 (required, string) - ID of the Gist
+
+### Star a Gist [PUT]
+
++ Response 204
+
+### Unstar a Gist [DELETE]
+
++ Response 204
+
+### Check If a Gist Is Starred [GET]
+
++ Response 200 (application/hal+json)
+
+    + Headers
+
+            Link: <http://api.example.com/gists/42/star>;rel="self"
+
+    + Attributes (Star)
+
+## Data Structures
+
+## Gist
+
+A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+
+- id: `42`
+- created_at: `2016-04-14T02:15:15Z`
+- description: `Gist description...`
+- content: `String content...`
+- Include Links
+
+## Gists Collection
+
+Collection of Gists.
+
+- _embedded
+    - gists (array[Gist])
+- total (number) - Total number of listed Gists.
+- Include Links
+
+## Star
+
+Gist's starred status.
+
+- starred (boolean)
+- Include Links
+
+## Links
+
+HAL links.
+
+- _links
+    - *self*
+        - href - URL
+        - templated (boolean) - Whether the respective URL uses URI Templates

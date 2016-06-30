@@ -1,5 +1,8 @@
+sudo: required
+dist: trusty
 language: node_js
 node_js:
   - "6"
-services:
-  - mongodb
+before_install:
+  - "sudo apt-get install mongodb -y"
+  - "npm -g install npm@latest"

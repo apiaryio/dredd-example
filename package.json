@@ -1,0 +1,30 @@
+{
+  "name": "dredd-example",
+  "nicename": "Dredd Example",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Example application using Dredd and CI",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:apiaryio/dredd-example.git"
+  },
+  "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
+  "scripts": {
+    "start": "node app.js",
+    "test": "dredd"
+  },
+  "engines": {
+    "node": "6",
+    "npm": "3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-mongo-db": "^2.0.3"
+  },
+  "devDependencies": {
+    "dredd": "",
+    "mongodb": ""
+  }
+}

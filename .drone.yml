@@ -1,7 +1,0 @@
-build:
-  image: node:0.12
-  commands:
-    - npm update -g npm
-    - npm install -g dredd@unstable
-    - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/apiary.apib https://polls.apiblueprint.org --hookfiles=hooks/*
-    - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/swagger.yml https://polls.apiblueprint.org --hookfiles=hooks/*

@@ -1,0 +1,287 @@
+swagger: "2.0"
+info:
+  version: "0.0.0"
+  title: Gist Fox API
+  description: Gist Fox API is a sample pastes service similar to http://gist.github.com.
+  license:
+    name: MIT
+    url: https://raw.githubusercontent.com/apiaryio/dredd-example/master/LICENSE
+host: api.example.com
+basePath: /
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /:
+    get:
+      description: Gist Fox API entry point. Provides initial API affordances in the form of the HTTP Link header and HAL links.
+      operationId: Get_Retrieve the Entry Point_
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/entry-point'
+  /gists/{id}:
+    get:
+      description: A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+      operationId: Get_Retrieve a Single Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/gist'
+    delete:
+      description: A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+      operationId: Delete_Delete a Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      responses:
+        204:
+          description: ''
+    patch:
+      description: A single Gist object. The Gist resource is the central resource in the Gist Fox API. It represents one paste - a single text note.
+      operationId: Patch_Edit a Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/edit-gist'
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/gist'
+  /gists:
+    get:
+      description: Collection of Gists.
+      operationId: Get_List All Gists_
+      produces:
+      - application/json
+      parameters:
+      - name: since
+        in: query
+        required: false
+        type: number
+        format: double
+        description: Timestamp in unix time format. Only Gists updated at or after this time are returned.
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/gists'
+    post:
+      description: Collection of Gists.
+      operationId: Post_Create a Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: since
+        in: query
+        required: false
+        type: number
+        format: double
+        description: Timestamp in unix time format. Only Gists updated at or after this time are returned.
+      - name: body
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/create-gist'
+      responses:
+        201:
+          description: ''
+          schema:
+            $ref: '#/definitions/gist'
+  /gists/{id}/star:
+    get:
+      description: Gist's starred status.
+      operationId: Get_Check If a Gist Is Starred_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      responses:
+        200:
+          description: ''
+          schema:
+            $ref: '#/definitions/star'
+    put:
+      description: Gist's starred status.
+      operationId: Put_Star a Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      responses:
+        204:
+          description: ''
+    delete:
+      description: Gist's starred status.
+      operationId: Delete_Unstar a Gist_
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: string
+        description: ID of the Gist
+        enum:
+        - '42'
+      responses:
+        204:
+          description: ''
+definitions:
+  link:
+    type: object
+    properties:
+      href:
+        type: string
+      templated:
+        type: boolean
+    required:
+    - href
+  entry-point:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/link'
+          gists:
+            $ref: '#/definitions/link'
+        required:
+        - self
+        - gists
+    required:
+    - _links
+  gist:
+    type: object
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      content:
+        type: string
+      id:
+        type: string
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/link'
+          star:
+            $ref: '#/definitions/link'
+        required:
+        - self
+    required:
+    - created_at
+    - description
+    - content
+    - id
+    - _links
+  gists:
+    type: object
+    properties:
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/link'
+        required:
+        - self
+      _embedded:
+        type: object
+        properties:
+          gists:
+            type: array
+            items:
+              $ref: '#/definitions/gist'
+      total:
+        type: number
+    required:
+    - _links
+    - _embedded
+    - total
+  edit-gist:
+    type: object
+    properties:
+      content:
+        type: string
+    required:
+    - content
+  create-gist:
+    type: object
+    properties:
+      description:
+        type: string
+      content:
+        type: string
+    required:
+    - description
+    - content
+  star:
+    type: object
+    properties:
+      gist_id:
+        type: string
+      starred:
+        type: boolean
+      _links:
+        type: object
+        properties:
+          self:
+            $ref: '#/definitions/link'
+        required:
+        - self
+    required:
+    - gist_id
+    - starred
+    - _links

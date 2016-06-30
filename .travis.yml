@@ -1,9 +1,8 @@
+sudo: required
+dist: trusty
 language: node_js
 node_js:
-  - '0.12'
-before_script:
-  - npm update -g npm
-  - npm install -g dredd@unstable
-script:
-  - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/apiary.apib https://polls.apiblueprint.org --hookfiles=hooks/*
-  - dredd https://raw.githubusercontent.com/apiaryio/polls-api/master/swagger.yml https://polls.apiblueprint.org --hookfiles=hooks/*
+  - "6"
+before_install:
+  - "sudo apt-get install mongodb -y"
+  - "npm -g install npm@latest"

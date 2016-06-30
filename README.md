@@ -1,12 +1,17 @@
 # Dredd Example
 
-This is an example application to demonstrate how easily you can validate your HTTP API implementation in [CI][] with the [Dredd][] testing framework.
+This is an example application to demonstrate how easily you can employ the [Dredd][] testing framework as part of your [API design life cycle][].
 
 ## How It Works
 
-The example CI setup tests [Apiary][]'s sample application called [Polls API][], which lives at [polls.apiblueprint.org](https://polls.apiblueprint.org/). The API is tested against both [API Blueprint][] and [Swagger][] API description formats.
+There is a sample Gist Fox API implementation in the `app.js` file. Every time code of the application is changed and the changes are sent to GitHub, they are tested by Dredd in [CI][] against both [API Blueprint][] and [Swagger][] API description formats. If the implementation doesn't follow description of the API, the CI build would fail.
 
 ## Tutorials
+
+To learn more about about Dredd, read:
+
+- [Dredd Documentation](http://dredd.readthedocs.io/)
+- [Dredd's GitHub Repository](https://github.com/apiaryio/dredd)
 
 To learn how to use Dredd with your CI, read:
 
@@ -27,4 +32,4 @@ To learn how to use Dredd with your CI, read:
 [Dredd]: https://github.com/apiaryio/dredd
 [API Blueprint]: http://apiblueprint.org/
 [Swagger]: https://swagger.io
-[Polls API]: https://github.com/apiaryio/polls-api
+[API design life cycle]: https://apiary.io/how-to-build-api

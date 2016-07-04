@@ -11,7 +11,9 @@
   "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
   "scripts": {
     "start": "node app.js",
-    "test": "dredd"
+    "test": "npm run test:api-blueprint && npm run test:swagger",
+    "test:api-blueprint": "dredd --config ./api-blueprint/dredd.yml",
+    "test:swagger": "dredd --config ./swagger/dredd.yml"
   },
   "engines": {
     "node": "6",

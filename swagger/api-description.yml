@@ -39,7 +39,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       responses:
         200:
           description: ''
@@ -56,7 +56,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       responses:
         204:
           description: ''
@@ -71,7 +71,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       - name: body
         in: body
         required: true
@@ -134,7 +134,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       responses:
         200:
           description: ''
@@ -151,7 +151,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       responses:
         204:
           description: ''
@@ -166,7 +166,7 @@ paths:
         required: true
         type: string
         description: ID of the Gist
-        default: '42'
+        x-example: '42'
       responses:
         204:
           description: ''

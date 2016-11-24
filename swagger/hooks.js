@@ -64,25 +64,25 @@ hooks.afterEach((transaction, done) => {
 
 // To test work with Gists and Stars in isolation, we need to add some prior
 // to certain HTTP transactions Dredd is about to make
-hooks.before('/gists/{id} > GET', (transaction, done) => {
+hooks.before('/gists/{id} > GET > 200 > application/json', (transaction, done) => {
   db.collection('gists').insert(gist, (err) => {
     done(err);
   });
 });
 
-hooks.before('/gists/{id} > PATCH', (transaction, done) => {
+hooks.before('/gists/{id} > PATCH > 200 > application/json', (transaction, done) => {
   db.collection('gists').insert(gist, (err) => {
     done(err);
   });
 });
 
-hooks.before('/gists > GET', (transaction, done) => {
+hooks.before('/gists > GET > 200 > application/json', (transaction, done) => {
   db.collection('gists').insert(gist, (err) => {
     done(err);
   });
 });
 
-hooks.before('/gists/{id}/star > GET', (transaction, done) => {
+hooks.before('/gists/{id}/star > GET > 200 > application/json', (transaction, done) => {
   db.collection('stars').insert(star, (err) => {
     done(err);
   });

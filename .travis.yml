@@ -1,8 +1,15 @@
-sudo: required
-dist: trusty
+sudo: false
 language: node_js
 node_js:
   - "6"
+services:
+  - "mongodb"
+cache:
+  directories:
+    - "node_modules"
 before_install:
-  - "sudo apt-get install mongodb -y"
   - "npm -g install npm@latest"
+install:
+  - "npm install --no-optional"
+before_script:
+  - "npm info dredd version"

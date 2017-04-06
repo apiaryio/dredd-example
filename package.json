@@ -12,8 +12,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "npm run test:api-blueprint && npm run test:swagger",
-    "test:api-blueprint": "dredd --config ./api-blueprint/dredd.yml",
-    "test:swagger": "dredd --config ./swagger/dredd.yml"
+    "test:api-blueprint": "dredd --config=./api-blueprint/dredd.yml",
+    "test:swagger": "dredd --config=./swagger/dredd.yml"
   },
   "engines": {
     "node": "6",
@@ -21,12 +21,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
     "express-mongo-db": "^2.0.3"
   },
   "devDependencies": {
-    "dredd": "",
-    "mongodb": ""
+    "dredd": "latest",
+    "mongodb": "^2.2.25"
   }
 }

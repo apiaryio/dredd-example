@@ -1,17 +1,16 @@
 environment:
   nodejs_version: "6"
-  LOG_LEVEL: silly
 services:
   - "mongodb"
 install:
   - ps: Install-Product node 6
   - "npm -g install npm@latest"
   - "set PATH=%APPDATA%\\npm;%PATH%"
-  - "npm install"
+  - "npm install --no-optional"
 build: off
-test_script:
+before_test:
   - "node --version"
   - "npm --version"
-  - "npm run test:api-blueprint"
-  - "taskkill /im node.exe /f"  # https://github.com/apiaryio/dredd/issues/669
-  - "npm run test:swagger"
+  - "npm info dredd version"
+test_script:
+  - "npm test"

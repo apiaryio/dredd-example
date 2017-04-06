@@ -24,7 +24,7 @@ To learn how to use Dredd with your CI, read:
 | ---------- | ------ |
 | Travis CI  | [![Travis CI Build Status](https://travis-ci.org/apiaryio/dredd-example.svg?branch=master)](https://travis-ci.org/apiaryio/dredd-example) |
 | CircleCI   | [![CircleCI Build Status](https://circleci.com/gh/apiaryio/dredd-example.svg?style=svg)](https://circleci.com/gh/apiaryio/dredd-example) |
-| AppVeyor   | [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/7cqqqpnrlhd2dkg1?svg=true)](https://ci.appveyor.com/project/Apiary/dredd-example) |
+| AppVeyor   | [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/7cqqqpnrlhd2dkg1/branch/master?svg=true)](https://ci.appveyor.com/project/Apiary/dredd-example/branch/master) |
 
 
 [CI]: https://en.wikipedia.org/wiki/Continuous_integration

@@ -27,6 +27,6 @@
   },
   "devDependencies": {
     "dredd": "latest",
-    "mongodb": "^2.2.25"
+    "mongodb": "^3.0.4"
   }
 }

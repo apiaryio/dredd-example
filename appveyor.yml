@@ -1,9 +1,9 @@
 environment:
-  nodejs_version: "6"
+  nodejs_version: ""
 services:
   - "mongodb"
 install:
-  - ps: Install-Product node 6
+  - ps: Install-Product node $env:nodejs_version
   - "npm -g install npm@latest"
   - "set PATH=%APPDATA%\\npm;%PATH%"
   - "npm install --no-optional"

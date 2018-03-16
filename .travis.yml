@@ -7,8 +7,6 @@ services:
 cache:
   directories:
     - "node_modules"
-before_install:
-  - "npm -g install npm@latest"
 install:
   - "npm install --no-optional"
 before_script:

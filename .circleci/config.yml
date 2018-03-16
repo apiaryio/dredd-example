@@ -10,11 +10,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-          name: Installation
-          command: |
-            npm -g install npm@latest
-            npm install --no-optional
+      - run: npm install --no-optional
       - save_cache:
           paths:
             - node_modules

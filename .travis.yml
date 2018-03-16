@@ -1,14 +1,12 @@
 sudo: false
 language: node_js
 node_js:
-  - "6"
+  - "stable"
 services:
   - "mongodb"
 cache:
   directories:
     - "node_modules"
-before_install:
-  - "npm -g install npm@latest"
 install:
   - "npm install --no-optional"
 before_script:

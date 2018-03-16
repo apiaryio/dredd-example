@@ -3,6 +3,7 @@ const hooks = require('hooks');
 const {MongoClient} = require('mongodb');
 
 
+let client;
 let db;
 
 
@@ -22,15 +23,18 @@ const star = {
 
 // Setup database connection before Dredd starts testing
 hooks.beforeAll((transactions, done) => {
-  MongoClient.connect('mongodb://localhost/dredd-example', function(err, conn) {
-    db = conn;
+  MongoClient.connect('mongodb://localhost', function(err, c) {
+    if (!err) {
+      client = c;
+      db = c.db('dredd-example');
+    }
     done(err);
   });
 });
 
 // Close database connection after Dredd finishes testing
 hooks.afterAll((transactions, done) => {
-  db.close();
+  client.close();
   done();
 });
 

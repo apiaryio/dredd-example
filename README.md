@@ -1,7 +1,5 @@
 # Dredd Example
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/apiaryio/dredd-example.svg)](https://greenkeeper.io/)
-
 This is an example application to demonstrate how easily you can employ the [Dredd][] testing framework as part of your [API design life cycle][].
 
 ## How It Works

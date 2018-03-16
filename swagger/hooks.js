@@ -24,8 +24,10 @@ const star = {
 // Setup database connection before Dredd starts testing
 hooks.beforeAll((transactions, done) => {
   MongoClient.connect('mongodb://localhost', function (err, c) {
-    client = c;
-    db = c.db('dredd-example');
+    if (!err) {
+      client = c;
+      db = c.db('dredd-example');
+    }
     done(err);
   });
 });

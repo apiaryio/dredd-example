@@ -1,0 +1,12 @@
+box: node
+services:
+  - id: mongo
+build:
+  steps:
+    - script:
+        name: npm-install-no-compilation
+        code: npm install --no-optional
+    - script:
+        name: print-dredd-version
+        code: npm info dredd version
+    - npm-test

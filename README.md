@@ -4,13 +4,13 @@ This is an example application to demonstrate how easily you can employ the [Dre
 
 ## How It Works
 
-There is a sample _Gist Fox API_ implementation in the `app.js` file. Every time code of the application is changed and the changes are sent to GitHub, they are tested by Dredd in [CI](https://en.wikipedia.org/wiki/Continuous_integration) against both [API Blueprint][] and [OpenAPI 2][] (fka Swagger) API description formats. If the implementation doesn't follow description of the API, the CI build would fail.
+There is a sample _Gist Fox API_ implementation in the `app.js` file. Every time code of the application is modified and the changes are sent to GitHub, they are tested by Dredd in [CI](https://en.wikipedia.org/wiki/Continuous_integration) against both [API Blueprint][] and [OpenAPI 2][] (fka Swagger) API description formats. If the implementation doesn't follow description of the API, the CI build fails.
 
 ### API Description Examples
 
-| API description               | API description Document  | Dredd Configuration        | Dredd Hooks               |
-| ----------------------------- | ------------------------- | -------------------------- | ------------------------- |
-| [API Blueprint][]             | [apiblueprint/api.apib][] | [apiblueprint/dredd.yml][] | [apiblueprint/hooks.js][] |
+| API description             | API description Document  | Dredd Configuration        | Dredd Hooks               |
+| --------------------------- | ------------------------- | -------------------------- | ------------------------- |
+| [API Blueprint][]           | [apiblueprint/api.apib][] | [apiblueprint/dredd.yml][] | [apiblueprint/hooks.js][] |
 | [OpenAPI 2][] (fka Swagger) | [openapi2/api.yml][]      | [openapi2/dredd.yml][]     | [openapi2/hooks.js][]     |
 
 ### CI Examples

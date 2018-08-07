@@ -1,4 +1,3 @@
-
 const express = require('express');
 const expressMongoDb = require('express-mongo-db');
 const bodyParser = require('body-parser');
@@ -11,7 +10,8 @@ app = express();
 app.use(bodyParser.json());
 
 // setup Mongo connection
-app.use(expressMongoDb('mongodb://localhost/dredd-example'));
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost';
+app.use(expressMongoDb(`${mongoURI}/dredd-example`));
 
 // return HAL by default
 app.use((req, res, next) => {
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 // Returns buffer object with stringified JSON object. The buffer object
 // prevents Express.js to add 'charset=utf-8', which is against JSON spec.
 function toJSON(obj) {
-  return new Buffer(JSON.stringify(obj, null, 2));
+  return Buffer.from(JSON.stringify(obj, null, 2));
 }
 
 

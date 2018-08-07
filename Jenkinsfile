@@ -16,7 +16,7 @@ node {
          bat 'npm -g install dredd@stable'
       }
    }
-   stage('Test OpenAPI 2.0') {
+   stage('Test OpenAPI 2') {
       if(isUnix()) {
          wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
           sh 'dredd --config ./openapi2/dredd.yml --reporter junit --output openapi2.xml'

@@ -11,13 +11,9 @@
   "author": "Apiary Czech Republic, s.r.o. <support@apiary.io>",
   "scripts": {
     "start": "node app.js",
-    "test": "npm run test:api-blueprint && npm run test:swagger",
-    "test:api-blueprint": "dredd --config=./api-blueprint/dredd.yml",
-    "test:swagger": "dredd --config=./swagger/dredd.yml"
-  },
-  "engines": {
-    "node": "6",
-    "npm": "3"
+    "test": "npm run test:apiblueprint && npm run test:openapi2",
+    "test:apiblueprint": "dredd --config=./apiblueprint/dredd.yml",
+    "test:openapi2": "dredd --config=./openapi2/dredd.yml"
   },
   "license": "MIT",
   "dependencies": {

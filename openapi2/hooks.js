@@ -40,7 +40,7 @@ hooks.afterAll((transactions, done) => {
 
 
 // Before each test let's fix the media type - unfortunately current support
-// of Swagger in Dredd works only for application/json as of now
+// of OpenAPI2 in Dredd works only for application/json as of now
 hooks.beforeEach((transaction, done) => {
   let contentType;
 

@@ -1,5 +1,5 @@
 dry-run: null
-hookfiles: ./swagger/hooks.js
+hookfiles: ./openapi2/hooks.js
 language: nodejs
 sandbox: false
 server: npm start
@@ -29,5 +29,5 @@ hooks-worker-term-timeout: 5000
 hooks-worker-term-retry: 500
 hooks-worker-handler-host: localhost
 hooks-worker-handler-port: 61321
-blueprint: ./swagger/api-description.yml
+blueprint: ./openapi2/api.yml
 endpoint: 'http://localhost:3000'

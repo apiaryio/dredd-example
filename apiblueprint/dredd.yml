@@ -1,5 +1,5 @@
 dry-run: null
-hookfiles: ./api-blueprint/hooks.js
+hookfiles: ./apiblueprint/hooks.js
 language: nodejs
 sandbox: false
 server: npm start
@@ -29,5 +29,5 @@ hooks-worker-term-timeout: 5000
 hooks-worker-term-retry: 500
 hooks-worker-handler-host: localhost
 hooks-worker-handler-port: 61321
-blueprint: ./api-blueprint/api-description.apib
+blueprint: ./apiblueprint/api.apib
 endpoint: 'http://localhost:3000'

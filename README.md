@@ -8,7 +8,7 @@ There is a sample _Gist Fox API_ implementation in the `app.js` file. Every time
 
 ### API Description Examples
 
-| API description             | API description Document  | Dredd Configuration        | Dredd Hooks               |
+| API description             | API description document  | Dredd configuration        | Dredd hooks               |
 | --------------------------- | ------------------------- | -------------------------- | ------------------------- |
 | [API Blueprint][]           | [apiblueprint/api.apib][] | [apiblueprint/dredd.yml][] | [apiblueprint/hooks.js][] |
 | [OpenAPI 2][] (fka Swagger) | [openapi2/api.yml][]      | [openapi2/dredd.yml][]     | [openapi2/hooks.js][]     |

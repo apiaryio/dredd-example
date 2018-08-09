@@ -1,4 +1,3 @@
-
 const hooks = require('hooks');
 const {MongoClient} = require('mongodb');
 
@@ -23,7 +22,8 @@ const star = {
 
 // Setup database connection before Dredd starts testing
 hooks.beforeAll((transactions, done) => {
-  MongoClient.connect('mongodb://localhost', function (err, c) {
+  const mongoURI = process.env.MONGO_URI || 'mongodb://localhost';
+  MongoClient.connect(mongoURI, function (err, c) {
     if (!err) {
       client = c;
       db = c.db('dredd-example');
@@ -40,7 +40,7 @@ hooks.afterAll((transactions, done) => {
 
 
 // Before each test let's fix the media type - unfortunately current support
-// of Swagger in Dredd works only for application/json as of now
+// of OpenAPI2 in Dredd works only for application/json as of now
 hooks.beforeEach((transaction, done) => {
   let contentType;
 

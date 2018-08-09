@@ -1,0 +1,14 @@
+box: node
+services:
+  - mongo
+build:
+  steps:
+    - npm-install:
+      options: --no-optional
+    - script:
+      name: print-dredd-version
+      code: npm info dredd version
+    - script:
+      name: configure-mongo
+      code: export MONGO_URI="mongodb://$MONGO_PORT_27017_TCP_ADDR:$MONGO_PORT_27017_TCP_PORT"
+    - npm-test

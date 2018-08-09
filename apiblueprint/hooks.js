@@ -1,4 +1,3 @@
-
 const hooks = require('hooks');
 const {MongoClient} = require('mongodb');
 
@@ -23,7 +22,8 @@ const star = {
 
 // Setup database connection before Dredd starts testing
 hooks.beforeAll((transactions, done) => {
-  MongoClient.connect('mongodb://localhost', function(err, c) {
+  const mongoURI = process.env.MONGO_URI || 'mongodb://localhost';
+  MongoClient.connect(mongoURI, function(err, c) {
     if (!err) {
       client = c;
       db = c.db('dredd-example');

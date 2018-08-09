@@ -1,7 +1,7 @@
 // use node 6
 node {
    stage('Get source code') {
-      git url: 'https://github.com/apiaryio/dredd-example.git', branch: 'master'      
+      git url: 'https://github.com/apiaryio/dredd-example.git', branch: 'master'
    }
    stage('Install Deps') {
       if(isUnix()) {
@@ -16,26 +16,26 @@ node {
          bat 'npm -g install dredd@stable'
       }
    }
-   stage('Test Swagger') {
+   stage('Test OpenAPI 2') {
       if(isUnix()) {
          wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-          sh 'dredd --config ./swagger/dredd.yml --reporter junit --output swagger.xml'
+          sh 'dredd --config ./openapi2/dredd.yml --reporter junit --output openapi2.xml'
          }
       } else {
-         bat 'dredd --config ./swagger/dredd.yml --reporter junit --output swagger.xml'
+         bat 'dredd --config ./openapi2/dredd.yml --reporter junit --output openapi2.xml'
       }
-   }   
+   }
    stage('Test API Blueprint') {
       if(isUnix()) {
          wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-          sh 'dredd --config ./api-blueprint/dredd.yml --reporter junit --output blueprint.xml'
+          sh 'dredd --config ./apiblueprint/dredd.yml --reporter junit --output blueprint.xml'
          }
       } else {
-         bat 'dredd --config ./api-blueprint/dredd.yml --reporter junit --output blueprint.xml'
+         bat 'dredd --config ./apiblueprint/dredd.yml --reporter junit --output blueprint.xml'
       }
    }
    stage('Get JUnit Results') {
       junit 'blueprint.xml'
-      junit 'swagger.xml'
+      junit 'openapi2.xml'
    }
 }

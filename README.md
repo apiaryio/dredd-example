@@ -14,7 +14,7 @@ There is a sample _Gist Fox API_ implementation in the `app.js` file. Every time
 - Dredd configuration: [apiblueprint/dredd.yml][]
 - Dredd hooks: [apiblueprint/hooks.js][]
 
-### [OpenAPI 2][] (fka Swagger)
+### [OpenAPI 2][] (formerly known as Swagger)
 
 - Document: [openapi2/api.yml][]
 - Dredd configuration: [openapi2/dredd.yml][]

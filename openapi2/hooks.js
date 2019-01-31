@@ -23,7 +23,7 @@ const star = {
 // Setup database connection before Dredd starts testing
 hooks.beforeAll((transactions, done) => {
   const mongoURI = process.env.MONGO_URI || 'mongodb://localhost';
-  MongoClient.connect(mongoURI, function (err, c) {
+  MongoClient.connect(mongoURI, { useNewUrlParser: true }, function (err, c) {
     if (!err) {
       client = c;
       db = c.db('dredd-example');
@@ -56,10 +56,10 @@ hooks.beforeEach((transaction, done) => {
 
 // After each test clear contents of the database (we want isolated tests)
 hooks.afterEach((transaction, done) => {
-  db.collection('gists').remove({}, (err) => {
+  db.collection('gists').deleteMany({}, (err) => {
     if (err) { return done(err) }
 
-    db.collection('stars').remove({}, (err) => {
+    db.collection('stars').deleteMany({}, (err) => {
       done(err);
     });
   });
@@ -69,25 +69,25 @@ hooks.afterEach((transaction, done) => {
 // To test work with Gists and Stars in isolation, we need to add some prior
 // to certain HTTP transactions Dredd is about to make
 hooks.before('/gists/{id} > GET > 200 > application/json', (transaction, done) => {
-  db.collection('gists').insert(gist, (err) => {
+  db.collection('gists').insertOne(gist, (err) => {
     done(err);
   });
 });
 
 hooks.before('/gists/{id} > PATCH > 200 > application/json', (transaction, done) => {
-  db.collection('gists').insert(gist, (err) => {
+  db.collection('gists').insertOne(gist, (err) => {
     done(err);
   });
 });
 
 hooks.before('/gists > GET > 200 > application/json', (transaction, done) => {
-  db.collection('gists').insert(gist, (err) => {
+  db.collection('gists').insertOne(gist, (err) => {
     done(err);
   });
 });
 
 hooks.before('/gists/{id}/star > GET > 200 > application/json', (transaction, done) => {
-  db.collection('stars').insert(star, (err) => {
+  db.collection('stars').insertOne(star, (err) => {
     done(err);
   });
 });

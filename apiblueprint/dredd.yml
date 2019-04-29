@@ -1,7 +1,6 @@
 dry-run: null
 hookfiles: ./apiblueprint/hooks.js
 language: nodejs
-sandbox: false
 server: npm start
 server-wait: 3
 init: false
@@ -17,9 +16,6 @@ inline-errors: false
 details: false
 method: []
 color: true
-level: info
-timestamp: false
-silent: false
 path: []
 hooks-worker-timeout: 5000
 hooks-worker-connect-timeout: 1500

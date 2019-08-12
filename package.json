@@ -22,7 +22,7 @@
     "express-mongo-db": "2.0.4"
   },
   "devDependencies": {
-    "dredd": "11.2.15",
+    "dredd": "11.2.17",
     "mongodb": "3.2.7"
   }
 }

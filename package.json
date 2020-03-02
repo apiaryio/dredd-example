@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "dredd": "12.1.0",
-    "mongodb": "3.3.3"
+    "mongodb": "3.5.4"
   }
 }
